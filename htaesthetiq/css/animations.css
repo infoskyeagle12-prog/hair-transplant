@@ -352,6 +352,185 @@
 /* --------------------------------------------------------------------------
    13. Reduced motion — respect user preference
    -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   13. Landing page light medical theme
+   -------------------------------------------------------------------------- */
+.landing-light-theme {
+  --navy: #10233f;
+  --navy-light: #2f80ed;
+  --navy-dark: #10233f;
+  --gold: #2f80ed;
+  --gold-light: #eaf4ff;
+  --gold-dark: #2f80ed;
+  --white: #ffffff;
+  --off-white: #eaf4ff;
+  --text-dark: #10233f;
+  --text-gray: #607086;
+  --success: #2f80ed;
+  --font-accent: var(--font-heading);
+  --shadow-premium: 0 20px 44px rgba(16, 35, 63, 0.09);
+  --shadow-glow: 0 12px 30px rgba(47, 128, 237, 0.22);
+  background: #ffffff;
+}
+
+.landing-light-theme .top-bar {
+  background: #eaf4ff;
+  color: #10233f;
+  border-color: rgba(47, 128, 237, 0.18);
+}
+
+.landing-light-theme .header-nav,
+.landing-light-theme .dropdown-menu {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(47, 128, 237, 0.14);
+  box-shadow: 0 12px 34px rgba(16, 35, 63, 0.08);
+}
+
+.landing-light-theme .nav-link,
+.landing-light-theme .btn-phone,
+.landing-light-theme .hamburger,
+.landing-light-theme .logo {
+  color: #10233f;
+}
+
+.landing-light-theme .nav-menu-footer {
+  display: none;
+}
+
+.landing-light-theme .btn-cta {
+  background: #2f80ed;
+  color: #ffffff;
+}
+
+.landing-light-theme .btn-cta:hover {
+  background: #10233f;
+  color: #ffffff;
+  box-shadow: 0 15px 28px rgba(16, 35, 63, 0.2);
+}
+
+.landing-light-theme .hero-section {
+  background: #eaf4ff;
+  color: #10233f;
+}
+
+.landing-light-theme .hero-bg-img {
+  opacity: 0.26;
+  mix-blend-mode: multiply;
+}
+
+.landing-light-theme .hero-title,
+.landing-light-theme .hero-subtext {
+  color: #10233f;
+}
+
+.landing-light-theme .hero-subtext {
+  color: #607086;
+}
+
+.landing-light-theme .stats-bar {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(47, 128, 237, 0.2);
+  box-shadow: 0 -14px 36px rgba(16, 35, 63, 0.07);
+}
+
+.landing-light-theme .stat-item {
+  border-color: rgba(47, 128, 237, 0.18);
+}
+
+.landing-light-theme .stat-label {
+  color: #607086;
+}
+
+.landing-light-theme .bg-navy,
+.landing-light-theme .testimonials-section {
+  background: #eaf4ff;
+  color: #10233f;
+}
+
+.landing-light-theme .text-white-all .section-title,
+.landing-light-theme .text-white-all .section-desc,
+.landing-light-theme .bg-navy .section-title,
+.landing-light-theme .bg-navy .section-desc {
+  color: #10233f;
+}
+
+.landing-light-theme .why-card,
+.landing-light-theme .service-card,
+.landing-light-theme .result-card-container,
+.landing-light-theme .faq-item,
+.landing-light-theme .faq-header {
+  background: #ffffff;
+  border-color: rgba(47, 128, 237, 0.14);
+}
+
+.landing-light-theme .city-card::before,
+.landing-light-theme .service-card-img .overlay {
+  background: rgba(16, 35, 63, 0.42);
+}
+
+.landing-light-theme .cta-banner {
+  background: #2f80ed;
+  color: #ffffff;
+}
+
+.landing-light-theme .cta-banner::before {
+  display: none;
+}
+
+.landing-light-theme .cta-banner-title,
+.landing-light-theme .cta-banner-desc {
+  color: #ffffff;
+}
+
+.landing-light-theme .cta-banner .btn-navy {
+  background: #ffffff;
+  color: #10233f;
+  box-shadow: 0 12px 28px rgba(16, 35, 63, 0.2);
+}
+
+.landing-light-theme .cta-banner .btn-navy:hover {
+  background: #eaf4ff;
+}
+
+.landing-light-theme .footer {
+  background: #10233f;
+  border-color: #2f80ed;
+}
+
+.landing-light-theme .footer-tagline,
+.landing-light-theme .footer-column-title,
+.landing-light-theme .footer-contact-item .icon,
+.landing-light-theme .footer-links li a:hover,
+.landing-light-theme .footer-bottom-links a:hover {
+  color: #eaf4ff;
+}
+
+.landing-light-theme .social-btn {
+  border-color: rgba(234, 244, 255, 0.25);
+}
+
+.landing-light-theme .scroll-progress {
+  background: #2f80ed;
+}
+
+@media (max-width: 768px) {
+  .landing-light-theme .nav-menu-footer {
+    display: flex;
+  }
+
+  .landing-light-theme .header-nav,
+  .landing-light-theme .nav-menu {
+    background: #ffffff;
+  }
+
+  .landing-light-theme .hamburger span {
+    background: #10233f;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. Reduced motion — respect user preference
+   -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-up,
