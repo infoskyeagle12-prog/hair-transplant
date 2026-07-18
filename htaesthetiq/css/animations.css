@@ -1,0 +1,384 @@
+/* ==========================================================================
+   HT Aesthetiq — Premium Animation Layer
+   White + Light Blue | Soft, smooth, trustworthy motion
+   ========================================================================== */
+
+:root {
+  --anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --anim-blue: #2f80ed;
+  --anim-light-blue: #eaf4ff;
+}
+
+/* --------------------------------------------------------------------------
+   1. Scroll progress bar
+   -------------------------------------------------------------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, #2f80ed, #4a90e2);
+  z-index: 9999;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reveal system (JS auto-tags elements with .reveal + variant)
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.9s var(--anim-ease),
+    transform 0.9s var(--anim-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-up        { transform: translateY(42px); }
+.reveal-down      { transform: translateY(-32px); }
+.reveal-left      { transform: translateX(-48px); }
+.reveal-right     { transform: translateX(48px); }
+.reveal-zoom      { transform: scale(0.92) translateY(20px); }
+.reveal-blur      { filter: blur(8px); transform: translateY(24px); }
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Hero cinematic entrance
+   -------------------------------------------------------------------------- */
+@keyframes heroKenBurns {
+  0%   { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.12) translateY(-12px); }
+}
+
+.hero-section .hero-bg-img {
+  animation: heroKenBurns 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes heroRiseIn {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes eyebrowSlide {
+  from { opacity: 0; transform: translateY(16px); letter-spacing: 0.5em; }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content .hero-eyebrow {
+  animation: eyebrowSlide 1.1s var(--anim-ease) 0.15s both;
+}
+
+.hero-content .hero-title {
+  animation: heroRiseIn 1s var(--anim-ease) 0.35s both;
+}
+
+.hero-content .hero-subtext {
+  animation: heroRiseIn 1s var(--anim-ease) 0.55s both;
+}
+
+.hero-content .hero-actions {
+  animation: heroRiseIn 1s var(--anim-ease) 0.75s both;
+}
+
+@keyframes statsBarFloat {
+  from { opacity: 0; transform: translateY(48px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section .stats-bar {
+  animation: statsBarFloat 1s var(--anim-ease) 1s both;
+}
+
+/* --------------------------------------------------------------------------
+   4. Button micro-interactions (shine sweep + lift)
+   -------------------------------------------------------------------------- */
+.btn-cta,
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s var(--anim-ease),
+    box-shadow 0.35s var(--anim-ease);
+}
+
+.btn-cta::after,
+.btn-secondary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s var(--anim-ease);
+  pointer-events: none;
+}
+
+.btn-cta:hover::after,
+.btn-secondary:hover::after {
+  left: 130%;
+}
+
+.btn-cta:hover,
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(47, 128, 237, 0.28);
+}
+
+.btn-cta:active,
+.btn-secondary:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* --------------------------------------------------------------------------
+   5. Card micro-interactions — lift, glow, image zoom
+   -------------------------------------------------------------------------- */
+.why-card,
+.service-card,
+.step-card,
+.result-card-container,
+.faq-item {
+  transition:
+    transform 0.45s var(--anim-ease),
+    box-shadow 0.45s var(--anim-ease),
+    border-color 0.45s var(--anim-ease);
+}
+
+.why-card:hover,
+.service-card:hover,
+.result-card-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 44px rgba(47, 128, 237, 0.14);
+}
+
+.step-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Icon pop on card hover */
+.why-card .why-icon,
+.service-card .service-card-icon {
+  transition: transform 0.45s var(--anim-ease);
+}
+
+.why-card:hover .why-icon {
+  transform: translateY(-4px) scale(1.15) rotate(-6deg);
+}
+
+.service-card:hover .service-card-icon {
+  transform: scale(1.12) rotate(6deg);
+}
+
+/* Service image zoom */
+.service-card .service-card-img {
+  overflow: hidden;
+}
+
+.service-card .service-card-img img {
+  transition: transform 0.8s var(--anim-ease);
+}
+
+.service-card:hover .service-card-img img {
+  transform: scale(1.08);
+}
+
+/* Service link arrow slide */
+.service-link {
+  transition: gap 0.3s var(--anim-ease), color 0.3s var(--anim-ease);
+}
+
+.service-link svg,
+.service-link .arrow {
+  transition: transform 0.3s var(--anim-ease);
+}
+
+.service-link:hover svg,
+.service-link:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* --------------------------------------------------------------------------
+   6. Stat counter emphasis
+   -------------------------------------------------------------------------- */
+.stat-number {
+  display: inline-block;
+  transition: transform 0.4s var(--anim-ease);
+}
+
+.stat-item:hover .stat-number {
+  transform: scale(1.12);
+}
+
+@keyframes statPulseIn {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.stat-number.counted {
+  animation: statPulseIn 0.7s var(--anim-ease) both;
+}
+
+/* --------------------------------------------------------------------------
+   7. Section header underline draw
+   -------------------------------------------------------------------------- */
+.section-title {
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  margin: 14px auto 0;
+  height: 3px;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2f80ed, #4a90e2);
+  transition: width 1s var(--anim-ease) 0.35s;
+}
+
+.reveal.is-visible.section-title::after,
+.is-visible .section-title::after,
+.section-title.is-visible::after {
+  width: 64px;
+}
+
+/* --------------------------------------------------------------------------
+   8. CTA banner ambient glow
+   -------------------------------------------------------------------------- */
+@keyframes ambientGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(47, 128, 237, 0); }
+  50%      { box-shadow: 0 0 60px 6px rgba(47, 128, 237, 0.18); }
+}
+
+.cta-banner {
+  animation: ambientGlow 5s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   9. WhatsApp float — gentle bob + attention ring
+   -------------------------------------------------------------------------- */
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+@keyframes waRing {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
+  70%  { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-float {
+  animation: floatBob 3.2s ease-in-out infinite, waRing 2.6s ease-out infinite;
+  transition: transform 0.3s var(--anim-ease);
+}
+
+.whatsapp-float:hover {
+  animation-play-state: paused, paused;
+  transform: scale(1.12);
+}
+
+/* --------------------------------------------------------------------------
+   10. Nav link underline slide
+   -------------------------------------------------------------------------- */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--anim-blue);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s var(--anim-ease);
+}
+
+.nav-item:hover > .nav-link::before,
+.nav-item.active > .nav-link::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* --------------------------------------------------------------------------
+   11. FAQ indicator rotation
+   -------------------------------------------------------------------------- */
+.faq-icon-indicator {
+  transition: transform 0.4s var(--anim-ease), color 0.3s ease;
+  display: inline-block;
+}
+
+.faq-item.active .faq-icon-indicator,
+.faq-item.open .faq-icon-indicator {
+  transform: rotate(45deg);
+  color: var(--anim-blue);
+}
+
+/* --------------------------------------------------------------------------
+   12. Testimonial star twinkle
+   -------------------------------------------------------------------------- */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.75; transform: scale(1.08); }
+}
+
+.testimonial-slide:hover .testimonial-stars,
+.testimonial-slide:hover .stars {
+  animation: twinkle 1.2s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   13. Reduced motion — respect user preference
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-up,
+  .reveal-down,
+  .reveal-left,
+  .reveal-right,
+  .reveal-zoom,
+  .reveal-blur {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .hero-section .hero-bg-img,
+  .hero-content .hero-eyebrow,
+  .hero-content .hero-title,
+  .hero-content .hero-subtext,
+  .hero-content .hero-actions,
+  .hero-section .stats-bar,
+  .cta-banner,
+  .whatsapp-float,
+  .stat-number.counted {
+    animation: none !important;
+  }
+
+  .scroll-progress {
+    display: none;
+  }
+}
