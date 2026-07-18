@@ -1,8 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "mkdir -p public && cp -R htaesthetiq/. public/",
-  "outputDirectory": "public",
+  "buildCommand": "",
+  "outputDirectory": "htaesthetiq",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" }
+  ]
 }
